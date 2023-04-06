@@ -1,0 +1,62 @@
+@use "utils/index" as *;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  @include link-hover;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: {
+    top: 0;
+    bottom: 0;
+  }
+}
+.container {
+  max-width: 1440px;
+  padding-left: 60px;
+  padding-right: 60px;
+  margin-right: auto;
+  margin-left: auto;
+
+  @include rmax($sm) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+.overlay {
+  display: none;
+  &--active {
+    @include rmax($md) {
+      display: block;
+      position: fixed;
+      inset: 0;
+      background: #323264;
+      opacity: 0.7;
+    }
+  }
+}

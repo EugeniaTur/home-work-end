@@ -1,0 +1,13 @@
+// Normalize CSS
+@use "../node_modules/normalize.css/normalize.css";
+// Base SCSS
+@use "base/typography";
+@use "base/common";
+// Componenst SCSS
+@use "components/buttons";
+@use "components/cards";
+// Layout SCSS
+@use "layout/header";
+@use "layout/footer";
+// Pages SCSS
+@use "pages/home-page";

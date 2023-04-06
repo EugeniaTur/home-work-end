@@ -1,0 +1,33 @@
+@use "variables" as *;
+
+// vertical-align at center
+@mixin vcenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin transition($prop: all, $time: 0.3s, $func: ease) {
+  transition: $prop $time $func;
+}
+
+@mixin link-hover {
+  @include transition(color);
+  &:hover {
+    color: $color-accent;
+  }
+}
+
+@mixin rmax($width) {
+  @media (max-width: $width) {
+    @content;
+  }
+}
+
+@mixin link-hover {
+  @include transition(color);
+  &:hover {
+    color: $color-accent;
+  }
+}

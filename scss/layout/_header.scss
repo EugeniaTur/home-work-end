@@ -1,0 +1,238 @@
+@use "utils/index" as *;
+
+.header {
+  position: relative;
+  color: $color-light;
+  background: url("../assets/images/img-bg-decor.svg") 50% calc(50% + 110px) no-repeat, linear-gradient(42.01deg, #323264 14.33%, #323264 51.39%, #7a425e 87.53%);
+  background-size: 689px, cover;
+  overflow: hidden;
+
+  @include rmax($sm) {
+    background: linear-gradient(42.01deg, #323264 14.33%, #323264 51.39%, #7a425e 87.53%);
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 25vh;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    background: linear-gradient(180deg, rgba(50, 50, 100, 0) 16.67%, #323264 100%);
+  }
+
+  &__container {
+    padding-top: 50px;
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 115px;
+
+    @include rmax($lg) {
+      padding-top: $gap-sm;
+    }
+  }
+
+  &__top {
+    // position: absolute;
+    // z-index: 2;
+    // top: 0;
+    // right: 0;
+    // left: 0;
+    display: grid;
+    gap: $gap;
+    grid-template-columns: auto 1fr;
+    grid-template-areas: "logo actions" "logo menu";
+
+    @include rmax($lg) {
+      grid-template-areas: "actions actions" "logo menu";
+    }
+    @include rmax($md) {
+    }
+  }
+
+  &__logo {
+    width: 155px;
+    grid-area: logo;
+    @include rmax($md) {
+      width: 78px;
+    }
+  }
+  &__actions {
+    grid-area: actions;
+    display: flex;
+    justify-content: flex-end;
+    gap: $gap;
+    align-items: center;
+    @include rmax($lg) {
+      justify-content: space-between;
+      color: $color-gray-separator;
+      a {
+        color: $color-gray-separator;
+      }
+    }
+  }
+
+  &__languages-list {
+    display: flex;
+    gap: $gap-sm;
+  }
+
+  &__languages-link {
+    text-decoration: none;
+    color: $color-light;
+    font-weight: 700;
+    font-size: rem(12);
+    line-height: line-height(14, 12);
+    letter-spacing: 1px;
+    border-radius: 8px;
+
+    &--active {
+      background: $color-accent;
+      padding: 5px 6px;
+      @include rmax($md) {
+        color: $color-light;
+      }
+    }
+  }
+  &__address {
+    line-height: line-height(19, 16);
+    @include rmax($md) {
+      display: none;
+    }
+  }
+  &__phons-link {
+    color: $color-light;
+    font-weight: 700;
+    font-size: rem(16);
+    line-height: line-height(19, 16);
+    @include rmax($md) {
+    }
+  }
+
+  &__fb-link {
+    @include rmax($md) {
+      display: none;
+    }
+  }
+
+  &__fb-img {
+    width: 24px;
+  }
+
+  &__menu {
+    grid-area: menu;
+    justify-self: end;
+  }
+
+  &__menu-item {
+    &--close {
+      display: none;
+      @include rmax($md) {
+        display: block;
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        width: 32px;
+        height: 32px;
+      }
+    }
+  }
+
+  &__menu-list {
+    display: flex;
+    gap: 15px;
+    @include rmax($md) {
+      display: none;
+    }
+    &--opened {
+      @include rmax($md) {
+        display: flex;
+        gap: 11px;
+        position: fixed;
+        flex-direction: column;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 100;
+        background-color: white;
+        border-radius: 12px 12px 0px 0px;
+        padding: 62px 20px 20px 20px;
+
+        .header__menu-item {
+          display: block;
+          padding-top: 7px;
+          padding-bottom: 9px;
+          background-color: $color-gray-bg;
+          border-radius: 12px;
+          text-align: center;
+        }
+
+        .header__menu-link {
+          color: $color-active;
+          font-size: rem(24);
+          line-height: line-height(28, 24);
+        }
+
+        .header__menu-link--active {
+          color: $color-accent;
+        }
+      }
+    }
+  }
+
+  &__menu-link {
+    color: $color-light;
+
+    font-size: rem(18);
+    line-height: line-height(21, 18);
+  }
+
+  &__burger {
+    display: none;
+    @include rmax($md) {
+      display: block;
+    }
+  }
+
+  &__main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    position: relative;
+  }
+
+  &__main-img {
+    position: absolute;
+    top: -58px;
+    width: 595px;
+  }
+
+  &__main-title {
+    text-align: center;
+    max-width: 615px;
+    position: relative;
+    font-weight: 400;
+    font-size: rem(38);
+    line-height: line-height(45, 38);
+  }
+
+  &__scrolldown {
+    margin-bottom: 20px;
+    position: absolute;
+    z-index: 2;
+    width: 42px;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%);
+    padding: 0px;
+    border: none;
+    font: inherit;
+    color: inherit;
+    background-color: transparent;
+    cursor: pointer;
+  }
+}

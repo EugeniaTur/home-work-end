@@ -1,0 +1,11 @@
+@use 'variables' as *;
+@use 'sass:math' as math;
+
+// px to rem function
+@function rem($pixels, $context: math.div($base-font-size, 1px)) {
+  @return #{math.div($pixels, $context)}rem;
+}
+
+@function line-height($pixels, $context: math.div($base-font-size, 1px)) {
+  @return #{math.div($pixels, $context)};
+}

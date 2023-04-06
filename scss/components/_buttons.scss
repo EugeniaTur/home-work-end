@@ -1,0 +1,55 @@
+@use "utils/index" as *;
+
+.burger {
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  position: relative;
+  &:hover {
+    .burger__line {
+      background-color: $color-accent;
+    }
+  }
+
+  &__line {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: $color-light;
+    top: 50%;
+    transform: translateY(-50%);
+    @include transition(background);
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: inherit;
+      left: 0;
+    }
+    &::before {
+      top: -6px;
+    }
+    &::after {
+      top: 6px;
+    }
+  }
+}
+.header {
+  &__menu-close {
+    background: none;
+    border: 0;
+    color: inherit;
+    font: inherit;
+    line-height: normal;
+    overflow: visible;
+    padding: 0;
+  }
+}

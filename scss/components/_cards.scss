@@ -1,0 +1,21 @@
+@use "utils/index" as *;
+
+.service-card {
+  &__img {
+    width: 92px;
+    margin-bottom: 20px;
+  }
+
+  &__title {
+    margin-bottom: 15px;
+    font-size: 24px;
+    line-height: 28px;
+    color: #24a3ff;
+  }
+
+  &__description {
+    font-size: 18px;
+    line-height: 26px;
+    color: #ffffff;
+  }
+}
